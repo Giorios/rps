@@ -1,3 +1,5 @@
+var userScore = 0, computerScore = 0;
+
 const getUserChoice = (userInput) => {
   userInput = userInput.toLowerCase();
   if (
@@ -29,40 +31,60 @@ const getComputerChoice = () => {
 
 const determineWinner = (userChoice, computerChoice) => {
   if (userChoice === computerChoice) {
-    return 'tie!';
+    return 'Tie!';
   }
   if (userChoice === 'rock') {
     if (computerChoice === 'paper') {
-    return 'computer wins!';
+    return 'Computer won!';
+      computerScore++;
   } else {
-    return 'you win!';
+    return 'You won!';
+      userScore++;
   }
   }
   if (userChoice === 'paper') {
     if (computerChoice === 'scissors'){
-      return 'computer wins!';
+      return 'Computer won!';
+      computerScore++;
     } else {
-      return 'you win!';
+      return 'You won!';
+      userScore++;
     }
   }
   if (userChoice === 'scissors') {
     if (computerChoice === 'rock') {
-      return 'computer wins!';
+      return 'Computer won!';
     } else {
-      return 'you win!';
+      return 'You won!';
+      
     }
   }
   if (userChoice === 'bomb'){
     return 'you win!';
+    userScore++;
   }
 };
 
-const playGame = () => {
-  const userChoice = getUserChoice('rock');
-  const computerChoice = getComputerChoice('');
+function displayWinner(winner)
+{
+ document.getElementById("output").innerHTML = winner;
+};
+
+function updateScore()
+  {
+     document.getElementById("yw").innerHTML = userScore; 
+    document.getElementById("cw").innerHTML = computerScore;
+  };
+
+const playGame = (choice) => {
+  var userChoice = getUserChoice(choice);
+  var computerChoice = getComputerChoice();
   console.log('picked: ' + userChoice);
   console.log('computer picked: ' + computerChoice);
   console.log(determineWinner(userChoice, computerChoice));
+  displayWinner(determineWinner(userChoice, computerChoice));
+  updateScore(userScore, computerScore)
+   document.getElementById("cc").innerHTML = computerChoice;
 };
 
-playGame();
+
