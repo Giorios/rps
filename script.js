@@ -84,7 +84,7 @@ const playGame = (choice) => {
   console.log(determineWinner(userChoice, computerChoice));
   displayWinner(determineWinner(userChoice, computerChoice));
   updateScore(userScore, computerScore)
-   document.getElementById("cc").innerHTML = computerChoice;
+   document.getElementById("cc").innerHTML = computerChoice +'!';
 };
 
 
