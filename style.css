@@ -5,5 +5,7 @@ html, body {
 
 .color {
 height:100% ;
-background-color: #c7fffb;
+background-color: #242b43;
+  color: white;
+  font-family: 'Rubik', sans-serif;
 }

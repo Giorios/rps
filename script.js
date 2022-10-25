@@ -1,4 +1,5 @@
-var userScore = 0, computerScore = 0;
+let userScore = 0;
+let computerScore = 0;
 
 const getUserChoice = (userInput) => {
   userInput = userInput.toLowerCase();
@@ -35,33 +36,39 @@ const determineWinner = (userChoice, computerChoice) => {
   }
   if (userChoice === 'rock') {
     if (computerChoice === 'paper') {
+            computerScore++;
     return 'Computer won!';
-      computerScore++;
+      
   } else {
-    return 'You won!';
       userScore++;
+    return 'You won!';
+      
   }
   }
   if (userChoice === 'paper') {
     if (computerChoice === 'scissors'){
-      return 'Computer won!';
       computerScore++;
+      return 'Computer won!';
+      
     } else {
-      return 'You won!';
       userScore++;
+      return 'You won!';
+      
     }
   }
   if (userChoice === 'scissors') {
     if (computerChoice === 'rock') {
+      computerScore++;
       return 'Computer won!';
     } else {
+      userScore+=1;
       return 'You won!';
       
     }
   }
   if (userChoice === 'bomb'){
     return 'you win!';
-    userScore++;
+
   }
 };
 
@@ -83,7 +90,7 @@ const playGame = (choice) => {
   console.log('computer picked: ' + computerChoice);
   console.log(determineWinner(userChoice, computerChoice));
   displayWinner(determineWinner(userChoice, computerChoice));
-  updateScore(userScore, computerScore)
+  updateScore();
    document.getElementById("cc").innerHTML = computerChoice +'!';
 };
 
